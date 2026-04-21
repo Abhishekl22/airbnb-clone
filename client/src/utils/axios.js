@@ -2,7 +2,7 @@ import axios from 'axios';
 import { getItemFromLocalStorage } from './localStorage';
 
 const axiosInstance = axios.create({
-  baseURL: import.meta.env.VITE_BASE_URL || 'http://localhost:4000',
+  baseURL: import.meta.env.VITE_BASE_URL || 'https://airbnb-clone-api-azure.vercel.app',
   withCredentials: true,
   headers: {
     'Content-Type': 'application/json',
