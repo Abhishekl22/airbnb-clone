@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { GoogleLogin } from '@react-oauth/google';
+import { motion } from 'framer-motion';
+import { LogIn, Mail, Lock } from 'lucide-react';
 
 import ProfilePage from './ProfilePage';
 import { useAuth } from '../../hooks';
@@ -47,54 +49,147 @@ const LoginPage = () => {
   }
 
   return (
-    <div className="mt-4 flex grow items-center justify-around p-4 md:p-0">
-      <div className="mb-40">
-        <h1 className="mb-4 text-center text-4xl">Login</h1>
-        <form className="mx-auto max-w-md" onSubmit={handleFormSubmit}>
-          <input
-            name="email"
-            type="email"
-            placeholder="your@email.com"
-            value={formData.email}
-            onChange={handleFormData}
-          />
-          <input
-            name="password"
-            type="password"
-            placeholder="password"
-            value={formData.password}
-            onChange={handleFormData}
-          />
-          <button className="primary my-4">Login</button>
-        </form>
+    <div className="min-h-screen flex items-center justify-center p-4 relative overflow-hidden">
+      {/* Animated Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-600 via-pink-500 to-blue-500 opacity-90 animate-gradient"></div>
+      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=1920')] bg-cover bg-center opacity-30"></div>
+      
+      {/* Floating Decorative Elements */}
+      <motion.div 
+        className="absolute top-20 left-20 w-32 h-32 bg-white/20 rounded-full blur-xl animate-float"
+        style={{ animationDelay: '0s' }}
+      ></motion.div>
+      <motion.div 
+        className="absolute bottom-20 right-20 w-40 h-40 bg-pink-300/30 rounded-full blur-xl animate-float"
+        style={{ animationDelay: '1s' }}
+      ></motion.div>
+      <motion.div 
+        className="absolute top-1/2 left-1/4 w-24 h-24 bg-blue-300/30 rounded-full blur-xl animate-float"
+        style={{ animationDelay: '2s' }}
+      ></motion.div>
 
-        <div className="mb-4 flex w-full items-center gap-4">
-          <div className="h-0 w-1/2 border-[1px]"></div>
-          <p className="small -mt-1">or</p>
-          <div className="h-0 w-1/2 border-[1px]"></div>
-        </div>
+      {/* Login Card */}
+      <motion.div 
+        className="relative z-10 w-full max-w-md"
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: 'easeOut' }}
+      >
+        <div className="glass rounded-3xl p-8 shadow-2xl animate-pulse-glow">
+          {/* Header */}
+          <motion.div 
+            className="text-center mb-8"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.2, duration: 0.5 }}
+          >
+            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-purple-600 to-pink-500 rounded-full mb-4 shadow-lg">
+              <LogIn className="w-10 h-10 text-white" />
+            </div>
+            <h1 className="text-4xl font-bold gradient-text mb-2">Welcome Back</h1>
+            <p className="text-gray-600">Sign in to your account</p>
+          </motion.div>
 
-        {/* Google login button */}
-        <div className="flex h-[50px] justify-center">
-          <GoogleLogin
-            onSuccess={(credentialResponse) => {
-              handleGoogleLogin(credentialResponse.credential);
-            }}
-            onError={() => {
-              console.log('Login Failed');
-            }}
-            text="continue_with"
-            width="350"
-          />
-        </div>
+          {/* Form */}
+          <form className="space-y-6" onSubmit={handleFormSubmit}>
+            <motion.div 
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.3, duration: 0.5 }}
+            >
+              <div className="relative">
+                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-purple-500" />
+                <input
+                  name="email"
+                  type="email"
+                  placeholder="your@email.com"
+                  value={formData.email}
+                  onChange={handleFormData}
+                  className="pl-12"
+                />
+              </div>
+            </motion.div>
 
-        <div className="py-2 text-center text-gray-500">
-          Don't have an account yet?{' '}
-          <Link className="text-black underline" to={'/register'}>
-            Register now
-          </Link>
+            <motion.div 
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.4, duration: 0.5 }}
+            >
+              <div className="relative">
+                <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-purple-500" />
+                <input
+                  name="password"
+                  type="password"
+                  placeholder="password"
+                  value={formData.password}
+                  onChange={handleFormData}
+                  className="pl-12"
+                />
+              </div>
+            </motion.div>
+
+            <motion.button 
+              className="primary"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.5 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Login
+            </motion.button>
+          </form>
+
+          {/* Divider */}
+          <motion.div 
+            className="flex items-center gap-4 my-6"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.6, duration: 0.5 }}
+          >
+            <div className="flex-1 h-px bg-gradient-to-r from-transparent via-purple-300 to-transparent"></div>
+            <span className="text-gray-500 text-sm font-medium">or continue with</span>
+            <div className="flex-1 h-px bg-gradient-to-r from-transparent via-purple-300 to-transparent"></div>
+          </motion.div>
+
+          {/* Google Login */}
+          <motion.div 
+            className="flex justify-center"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.7, duration: 0.5 }}
+          >
+            <GoogleLogin
+              onSuccess={(credentialResponse) => {
+                handleGoogleLogin(credentialResponse.credential);
+              }}
+              onError={() => {
+                console.log('Login Failed');
+              }}
+              text="continue_with"
+              width="350"
+            />
+          </motion.div>
+
+          {/* Register Link */}
+          <motion.div 
+            className="text-center mt-6"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.8, duration: 0.5 }}
+          >
+            <p className="text-gray-600">
+              Don't have an account yet?{' '}
+              <Link 
+                to={'/register'} 
+                className="font-semibold bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent hover:underline"
+              >
+                Register now
+              </Link>
+            </p>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

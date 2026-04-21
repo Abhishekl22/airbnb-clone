@@ -4,6 +4,7 @@ import { usePlaces } from "../../hooks";
 import Spinner from '@/components/ui/Spinner';
 import PlaceCard from '@/components/ui/PlaceCard';
 import Carousel from "@/components/ui/Carousel";
+import { Sparkles, Home, MapPin } from 'lucide-react';
 
 const IndexPage = () => {
   const { places, loading } = usePlaces();
@@ -67,23 +68,74 @@ const IndexPage = () => {
 
   return (
     <motion.div 
-      className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100"
+      className="min-h-screen relative overflow-hidden"
       initial="initial"
       animate="animate"
       variants={backgroundVariants}
     >
-      <div className="mx-auto max-w-7xl py-8">
-        {/* 🔹 Carousel Section with animation */}
+      {/* Animated Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50 animate-gradient"></div>
+      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=1920')] bg-cover bg-center opacity-10"></div>
+      
+      {/* Floating Decorative Elements */}
+      <motion.div 
+        className="absolute top-40 left-20 w-40 h-40 bg-purple-300/20 rounded-full blur-2xl animate-float"
+        style={{ animationDelay: '0s' }}
+      ></motion.div>
+      <motion.div 
+        className="absolute bottom-40 right-20 w-48 h-48 bg-pink-300/20 rounded-full blur-2xl animate-float"
+        style={{ animationDelay: '1.5s' }}
+      ></motion.div>
+      <motion.div 
+        className="absolute top-1/3 right-1/3 w-32 h-32 bg-blue-300/20 rounded-full blur-2xl animate-float"
+        style={{ animationDelay: '3s' }}
+      ></motion.div>
+
+      <div className="relative z-10 mx-auto max-w-7xl py-8">
+        {/* Hero Section */}
+        <motion.div 
+          className="text-center mb-12"
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          <div className="inline-flex items-center justify-center gap-2 mb-4">
+            <Sparkles className="w-6 h-6 text-purple-600 animate-pulse" />
+            <h1 className="text-5xl font-extrabold gradient-text">Discover Amazing Places</h1>
+            <Sparkles className="w-6 h-6 text-pink-600 animate-pulse" />
+          </div>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            Find your perfect getaway from our curated collection of stunning properties worldwide
+          </p>
+        </motion.div>
+
+        {/* Carousel Section with animation */}
         <motion.div 
           className="mb-12"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
         >
-          <Carousel images={carouselImages} interval={5000} />
+          <div className="glass rounded-3xl overflow-hidden shadow-2xl animate-pulse-glow">
+            <Carousel images={carouselImages} interval={5000} />
+          </div>
         </motion.div>
 
-        {/* 🔹 Animated Places Grid */}
+        {/* Section Header */}
+        <motion.div 
+          className="flex items-center gap-3 mb-8 px-4"
+          initial={{ opacity: 0, x: -30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+        >
+          <Home className="w-8 h-8 text-purple-600" />
+          <h2 className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent">
+            Featured Properties
+          </h2>
+          <MapPin className="w-8 h-8 text-pink-600" />
+        </motion.div>
+
+        {/* Animated Places Grid */}
         <AnimatePresence>
           <motion.div 
             className="grid grid-cols-1 justify-items-center gap-8 px-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
@@ -104,35 +156,47 @@ const IndexPage = () => {
                 </motion.div>
               ))
             ) : (
-          <div className="col-span-full flex flex-col items-center p-10 text-center bg-gradient-to-r from-gray-50 via-gray-100 to-gray-200 rounded-xl shadow-lg">
-            <h1 className="text-3xl font-extrabold text-gray-800">
-              No places found 🏡
-            </h1>
-            <p className="mt-3 text-lg font-medium text-gray-600">
-              Be the <span className="text-primary font-semibold">first</span> to
-              list your property and get noticed!
-            </p>
-
-            {/* Call to Action */}
-            <button className="mt-6 flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-white font-medium shadow-lg transition-all duration-300 hover:bg-primary/90 hover:shadow-xl hover:-translate-y-1">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="h-5 w-5"
+              <motion.div 
+                className="col-span-full flex flex-col items-center p-16 text-center glass rounded-3xl shadow-2xl"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6 }}
               >
-                <line x1="19" y1="12" x2="5" y2="12"></line>
-                <polyline points="12 19 5 12 12 5"></polyline>
-              </svg>
-              Go Back
-            </button>
-              </div>
+                <div className="w-24 h-24 bg-gradient-to-r from-purple-600 to-pink-500 rounded-full flex items-center justify-center mb-6 animate-pulse-glow">
+                  <Home className="w-12 h-12 text-white" />
+                </div>
+                <h1 className="text-4xl font-extrabold gradient-text mb-4">
+                  No places found 🏡
+                </h1>
+                <p className="mt-3 text-xl font-medium text-gray-600 max-w-lg">
+                  Be the <span className="bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent font-bold">first</span> to
+                  list your property and get noticed!
+                </p>
+
+                {/* Call to Action */}
+                <motion.button 
+                  className="mt-8 flex items-center gap-2 rounded-full bg-gradient-to-r from-purple-600 via-pink-500 to-blue-500 px-8 py-4 text-white font-bold shadow-xl hover:shadow-2xl hover:scale-105 active:scale-95 transition-all duration-300 animate-gradient"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="h-6 w-6"
+                  >
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                  </svg>
+                  Start Exploring
+                </motion.button>
+              </motion.div>
             )}
           </motion.div>
         </AnimatePresence>
