@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Calendar, CreditCard, MapPin, Sparkles, Suitcase } from 'lucide-react';
+import { Calendar, CreditCard, MapPin, Sparkles, Briefcase } from 'lucide-react';
 
 import AccountNav from '@/components/ui/AccountNav';
 import PlaceImg from '@/components/ui/PlaceImg';
@@ -55,7 +55,7 @@ const BookingsPage = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <Suitcase className="w-8 h-8 text-purple-600" />
+          <Briefcase className="w-8 h-8 text-purple-600" />
           <h2 className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent">
             My Bookings
           </h2>
@@ -127,7 +127,7 @@ const BookingsPage = () => {
               transition={{ duration: 0.6 }}
             >
               <div className="w-24 h-24 bg-gradient-to-r from-purple-600 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Suitcase className="w-12 h-12 text-white" />
+                <Briefcase className="w-12 h-12 text-white" />
               </div>
               <h1 className="text-4xl font-extrabold gradient-text mb-4">
                 No trips booked... yet!
