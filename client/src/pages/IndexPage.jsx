@@ -91,27 +91,27 @@ const IndexPage = () => {
         style={{ animationDelay: '3s' }}
       ></motion.div>
 
-      <div className="relative z-10 mx-auto max-w-7xl py-8">
+      <div className="relative z-10 mx-auto max-w-7xl pt-20 sm:pt-24 pb-8 px-4">
         {/* Hero Section */}
         <motion.div 
-          className="text-center mb-12"
+          className="text-center mb-8 sm:mb-12"
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <div className="inline-flex items-center justify-center gap-2 mb-4">
-            <Sparkles className="w-6 h-6 text-purple-600 animate-pulse" />
-            <h1 className="text-5xl font-extrabold gradient-text">Discover Amazing Places</h1>
-            <Sparkles className="w-6 h-6 text-pink-600 animate-pulse" />
+            <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-purple-600 animate-pulse" />
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold gradient-text">Discover Amazing Places</h1>
+            <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-pink-600 animate-pulse" />
           </div>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
             Find your perfect getaway from our curated collection of stunning properties worldwide
           </p>
         </motion.div>
 
         {/* Carousel Section with animation */}
         <motion.div 
-          className="mb-12"
+          className="mb-8 sm:mb-12"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
@@ -123,22 +123,22 @@ const IndexPage = () => {
 
         {/* Section Header */}
         <motion.div 
-          className="flex items-center gap-3 mb-8 px-4"
+          className="flex items-center justify-center gap-2 sm:gap-3 mb-6 sm:mb-8"
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          <Home className="w-8 h-8 text-purple-600" />
-          <h2 className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent">
+          <Home className="w-6 h-6 sm:w-8 sm:h-8 text-purple-600" />
+          <h2 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent">
             Featured Properties
           </h2>
-          <MapPin className="w-8 h-8 text-pink-600" />
+          <MapPin className="w-6 h-6 sm:w-8 sm:h-8 text-pink-600" />
         </motion.div>
 
         {/* Animated Places Grid */}
         <AnimatePresence>
           <motion.div 
-            className="grid grid-cols-1 justify-items-center gap-8 px-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+            className="grid grid-cols-1 justify-items-center gap-6 sm:gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
             variants={container}
             initial="hidden"
             animate="show"
@@ -157,39 +157,39 @@ const IndexPage = () => {
               ))
             ) : (
               <motion.div 
-                className="col-span-full flex flex-col items-center p-16 text-center glass rounded-3xl shadow-2xl"
+                className="col-span-full flex flex-col items-center p-8 sm:p-16 text-center glass rounded-3xl shadow-2xl"
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6 }}
               >
-                <div className="w-24 h-24 bg-gradient-to-r from-purple-600 to-pink-500 rounded-full flex items-center justify-center mb-6 animate-pulse-glow">
-                  <Home className="w-12 h-12 text-white" />
+                <div className="w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-r from-purple-600 to-pink-500 rounded-full flex items-center justify-center mb-4 sm:mb-6 animate-pulse-glow">
+                  <Home className="w-10 h-10 sm:w-12 sm:h-12 text-white" />
                 </div>
-                <h1 className="text-4xl font-extrabold gradient-text mb-4">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold gradient-text mb-4">
                   No places found 🏡
                 </h1>
-                <p className="mt-3 text-xl font-medium text-gray-600 max-w-lg">
+                <p className="mt-3 text-base sm:text-lg md:text-xl font-medium text-gray-600 max-w-lg">
                   Be the <span className="bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent font-bold">first</span> to
                   list your property and get noticed!
                 </p>
 
                 {/* Call to Action */}
                 <motion.button 
-                  className="mt-8 flex items-center gap-2 rounded-full bg-gradient-to-r from-purple-600 via-pink-500 to-blue-500 px-8 py-4 text-white font-bold shadow-xl hover:shadow-2xl hover:scale-105 active:scale-95 transition-all duration-300 animate-gradient"
+                  className="mt-6 sm:mt-8 flex items-center gap-2 rounded-full bg-gradient-to-r from-purple-600 via-pink-500 to-blue-500 px-6 py-3 sm:px-8 sm:py-4 text-white font-bold shadow-xl hover:shadow-2xl hover:scale-105 active:scale-95 transition-all duration-300 animate-gradient text-sm sm:text-base"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
+                    width="20"
+                    height="20"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    className="h-6 w-6"
+                    className="h-5 w-5 sm:h-6 sm:w-6"
                   >
                     <line x1="19" y1="12" x2="5" y2="12"></line>
                     <polyline points="12 19 5 12 12 5"></polyline>

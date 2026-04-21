@@ -56,15 +56,15 @@ const RegisterPage = () => {
       
       {/* Floating Decorative Elements */}
       <motion.div 
-        className="absolute top-20 right-20 w-32 h-32 bg-white/20 rounded-full blur-xl animate-float"
+        className="absolute top-20 right-20 w-32 h-32 bg-white/20 rounded-full blur-xl animate-float hidden md:block"
         style={{ animationDelay: '0s' }}
       ></motion.div>
       <motion.div 
-        className="absolute bottom-20 left-20 w-40 h-40 bg-blue-300/30 rounded-full blur-xl animate-float"
+        className="absolute bottom-20 left-20 w-40 h-40 bg-blue-300/30 rounded-full blur-xl animate-float hidden md:block"
         style={{ animationDelay: '1s' }}
       ></motion.div>
       <motion.div 
-        className="absolute top-1/2 right-1/4 w-24 h-24 bg-purple-300/30 rounded-full blur-xl animate-float"
+        className="absolute top-1/2 right-1/4 w-24 h-24 bg-purple-300/30 rounded-full blur-xl animate-float hidden md:block"
         style={{ animationDelay: '2s' }}
       ></motion.div>
 
@@ -75,23 +75,23 @@ const RegisterPage = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: 'easeOut' }}
       >
-        <div className="glass rounded-3xl p-8 shadow-2xl animate-pulse-glow">
+        <div className="glass bg-white/95 rounded-3xl p-6 sm:p-8 shadow-2xl animate-pulse-glow">
           {/* Header */}
           <motion.div 
-            className="text-center mb-8"
+            className="text-center mb-6 sm:mb-8"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2, duration: 0.5 }}
           >
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-blue-600 to-purple-500 rounded-full mb-4 shadow-lg">
-              <UserPlus className="w-10 h-10 text-white" />
+            <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-r from-blue-600 to-purple-500 rounded-full mb-4 shadow-lg">
+              <UserPlus className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
             </div>
-            <h1 className="text-4xl font-bold gradient-text mb-2">Create Account</h1>
-            <p className="text-gray-600">Join us and start your journey</p>
+            <h1 className="text-3xl sm:text-4xl font-bold gradient-text mb-2">Create Account</h1>
+            <p className="text-gray-600 text-sm sm:text-base">Join us and start your journey</p>
           </motion.div>
 
           {/* Form */}
-          <form className="space-y-6" onSubmit={handleFormSubmit}>
+          <form className="space-y-4 sm:space-y-6" onSubmit={handleFormSubmit}>
             <motion.div 
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -105,7 +105,7 @@ const RegisterPage = () => {
                   placeholder="John Doe"
                   value={formData.name}
                   onChange={handleFormData}
-                  className="pl-12"
+                  className="w-full pl-12 pr-4 py-3 rounded-2xl border-2 border-purple-200 focus:border-purple-500 focus:ring-4 focus:ring-purple-200 outline-none transition-all duration-300 bg-white/80 text-sm sm:text-base"
                 />
               </div>
             </motion.div>
@@ -123,7 +123,7 @@ const RegisterPage = () => {
                   placeholder="your@email.com"
                   value={formData.email}
                   onChange={handleFormData}
-                  className="pl-12"
+                  className="w-full pl-12 pr-4 py-3 rounded-2xl border-2 border-purple-200 focus:border-purple-500 focus:ring-4 focus:ring-purple-200 outline-none transition-all duration-300 bg-white/80 text-sm sm:text-base"
                 />
               </div>
             </motion.div>
@@ -141,13 +141,13 @@ const RegisterPage = () => {
                   placeholder="password"
                   value={formData.password}
                   onChange={handleFormData}
-                  className="pl-12"
+                  className="w-full pl-12 pr-4 py-3 rounded-2xl border-2 border-purple-200 focus:border-purple-500 focus:ring-4 focus:ring-purple-200 outline-none transition-all duration-300 bg-white/80 text-sm sm:text-base"
                 />
               </div>
             </motion.div>
 
             <motion.button 
-              className="primary"
+              className="w-full py-3 rounded-2xl bg-gradient-to-r from-blue-600 via-purple-500 to-pink-500 text-white font-bold shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-300 animate-gradient text-sm sm:text-base"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.5 }}
@@ -196,7 +196,7 @@ const RegisterPage = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.9, duration: 0.5 }}
           >
-            <p className="text-gray-600">
+            <p className="text-gray-600 text-sm sm:text-base">
               Already a member?{' '}
               <Link 
                 to={'/login'} 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Facebook, Twitter, Instagram, Globe, Heart } from 'lucide-react';
+import { Facebook, Twitter, Instagram, Globe, Heart, MapPin, Phone, Mail, Linkedin } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -142,6 +142,66 @@ const Footer = () => {
                   Airbnb.org Emergency Stays
                 </span>
               </p>
+            </div>
+          </motion.div>
+
+          {/* Developer Details */}
+          <motion.div 
+            className="mt-8 glass rounded-3xl p-6 shadow-2xl animate-pulse-glow"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+          >
+            <h3 className="text-2xl font-bold text-white mb-4 flex items-center gap-2">
+              <span className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
+                👨‍💻
+              </span>
+              Developer Details
+            </h3>
+            <div className="space-y-3">
+              <div className="flex items-center gap-3 text-white/90">
+                <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                  <span className="text-lg">👤</span>
+                </div>
+                <div>
+                  <p className="text-xs text-white/60">Name</p>
+                  <p className="font-semibold">Abhishek Rana</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-3 text-white/90">
+                <MapPin className="w-5 h-5 text-purple-300" />
+                <div>
+                  <p className="text-xs text-white/60">Address</p>
+                  <p className="font-semibold">Chandigarh, Sector 22 B</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-3 text-white/90">
+                <Phone className="w-5 h-5 text-pink-300" />
+                <div>
+                  <p className="text-xs text-white/60">Phone</p>
+                  <p className="font-semibold">8679201047</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-3 text-white/90">
+                <Mail className="w-5 h-5 text-blue-300" />
+                <div>
+                  <p className="text-xs text-white/60">Email</p>
+                  <p className="font-semibold">abhishekrana23da@gmail.com</p>
+                </div>
+              </div>
+              <a 
+                href="https://www.linkedin.com/in/abhishek-rana099" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 text-white/90 hover:text-white hover:scale-105 transition-all duration-300"
+              >
+                <Linkedin className="w-5 h-5 text-blue-400" />
+                <div>
+                  <p className="text-xs text-white/60">LinkedIn</p>
+                  <p className="font-semibold">abhishek-rana099</p>
+                </div>
+              </a>
             </div>
           </motion.div>
 

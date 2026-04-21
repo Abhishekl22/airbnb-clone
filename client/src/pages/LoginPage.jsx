@@ -56,101 +56,66 @@ const LoginPage = () => {
       
       {/* Floating Decorative Elements */}
       <motion.div 
-        className="absolute top-20 left-20 w-32 h-32 bg-white/20 rounded-full blur-xl animate-float"
+        className="absolute top-20 left-20 w-32 h-32 bg-white/20 rounded-full blur-xl animate-float hidden md:block"
         style={{ animationDelay: '0s' }}
       ></motion.div>
       <motion.div 
-        className="absolute bottom-20 right-20 w-40 h-40 bg-pink-300/30 rounded-full blur-xl animate-float"
-        style={{ animationDelay: '1s' }}
-      ></motion.div>
-      <motion.div 
-        className="absolute top-1/2 left-1/4 w-24 h-24 bg-blue-300/30 rounded-full blur-xl animate-float"
-        style={{ animationDelay: '2s' }}
+        className="absolute bottom-20 right-20 w-40 h-40 bg-white/20 rounded-full blur-xl animate-float hidden md:block"
+        style={{ animationDelay: '1.5s' }}
       ></motion.div>
 
-      {/* Login Card */}
-      <motion.div 
+      <motion.div
         className="relative z-10 w-full max-w-md"
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: 'easeOut' }}
+        initial={{ opacity: 0, scale: 0.9, y: 20 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
       >
-        <div className="glass rounded-3xl p-8 shadow-2xl animate-pulse-glow">
-          {/* Header */}
-          <motion.div 
-            className="text-center mb-8"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2, duration: 0.5 }}
-          >
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-purple-600 to-pink-500 rounded-full mb-4 shadow-lg">
-              <LogIn className="w-10 h-10 text-white" />
+        <div className="glass bg-white/95 rounded-3xl p-6 sm:p-8 shadow-2xl animate-pulse-glow">
+          <div className="text-center mb-6 sm:mb-8">
+            <h1 className="text-3xl sm:text-4xl font-extrabold gradient-text mb-2">Welcome Back</h1>
+            <p className="text-gray-600 text-sm sm:text-base">Sign in to continue your journey</p>
+          </div>
+
+          <form onSubmit={handleFormSubmit} className="space-y-4">
+            <div className="relative">
+              <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-purple-600" />
+              <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                value={formData.email}
+                onChange={handleFormData}
+                className="w-full pl-12 pr-4 py-3 rounded-2xl border-2 border-purple-200 focus:border-purple-500 focus:ring-4 focus:ring-purple-200 outline-none transition-all duration-300 bg-white/80 text-sm sm:text-base"
+              />
             </div>
-            <h1 className="text-4xl font-bold gradient-text mb-2">Welcome Back</h1>
-            <p className="text-gray-600">Sign in to your account</p>
-          </motion.div>
 
-          {/* Form */}
-          <form className="space-y-6" onSubmit={handleFormSubmit}>
-            <motion.div 
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.3, duration: 0.5 }}
-            >
-              <div className="relative">
-                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-purple-500" />
-                <input
-                  name="email"
-                  type="email"
-                  placeholder="your@email.com"
-                  value={formData.email}
-                  onChange={handleFormData}
-                  className="pl-12"
-                />
-              </div>
-            </motion.div>
+            <div className="relative">
+              <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-purple-600" />
+              <input
+                type="password"
+                name="password"
+                placeholder="Password"
+                value={formData.password}
+                onChange={handleFormData}
+                className="w-full pl-12 pr-4 py-3 rounded-2xl border-2 border-purple-200 focus:border-purple-500 focus:ring-4 focus:ring-purple-200 outline-none transition-all duration-300 bg-white/80 text-sm sm:text-base"
+              />
+            </div>
 
-            <motion.div 
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.4, duration: 0.5 }}
+            <motion.button
+              type="submit"
+              className="w-full py-3 rounded-2xl bg-gradient-to-r from-purple-600 via-pink-500 to-blue-500 text-white font-bold shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-300 animate-gradient text-sm sm:text-base"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
             >
-              <div className="relative">
-                <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-purple-500" />
-                <input
-                  name="password"
-                  type="password"
-                  placeholder="password"
-                  value={formData.password}
-                  onChange={handleFormData}
-                  className="pl-12"
-                />
-              </div>
-            </motion.div>
-
-            <motion.button 
-              className="primary"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.5 }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Login
+              Sign In
             </motion.button>
           </form>
 
-          {/* Divider */}
-          <motion.div 
-            className="flex items-center gap-4 my-6"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.6, duration: 0.5 }}
-          >
+          <div className="my-6 flex items-center gap-4">
             <div className="flex-1 h-px bg-gradient-to-r from-transparent via-purple-300 to-transparent"></div>
-            <span className="text-gray-500 text-sm font-medium">or continue with</span>
+            <span className="text-gray-500 text-sm">or</span>
             <div className="flex-1 h-px bg-gradient-to-r from-transparent via-purple-300 to-transparent"></div>
-          </motion.div>
+          </div>
 
           {/* Google Login */}
           <motion.div 
@@ -178,7 +143,7 @@ const LoginPage = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8, duration: 0.5 }}
           >
-            <p className="text-gray-600">
+            <p className="text-gray-600 text-sm sm:text-base">
               Don't have an account yet?{' '}
               <Link 
                 to={'/register'} 
