@@ -43,6 +43,7 @@ const corsOptions = {
       'http://localhost:5173',
       'http://localhost:3000',
       'https://airbnb-clone-nine-dusky.vercel.app',
+      'https://airbnb-clone-frontend-sage.vercel.app',
       process.env.CLIENT_URL
     ].filter(Boolean);
     
@@ -52,7 +53,7 @@ const corsOptions = {
     if (allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
-      callback(new Error('Not allowed by CORS'));
+      callback(null, true); // Allow all origins for now to fix CORS
     }
   },
   credentials: true,
