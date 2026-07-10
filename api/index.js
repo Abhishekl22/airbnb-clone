@@ -76,11 +76,11 @@ app.use("/api/payment", require("./routes/paymentRoutes"));
 
 
 
-app.listen(process.env.PORT || 8000, (err) => {
+app.listen(process.env.PORT || 10000, (err) => {
   if (err) { 
     console.log("Error in connecting to server: ", err);
   }
-  console.log(`Server is running on port no. ${process.env.PORT}`);
+  console.log(`Server is running on port no. ${process.env.PORT || 10000}`);
 });
 
 module.exports = app;
