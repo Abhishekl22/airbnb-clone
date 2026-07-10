@@ -13,7 +13,7 @@ const IndexPage = () => {
   const carouselImages = [
     "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1200",
     "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=1200",
-    "https://images.unsplash.com/photo-1520250497591-112a5c8e1e9e?w=1200",
+    "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1200",
   ];
 
   if (loading) {

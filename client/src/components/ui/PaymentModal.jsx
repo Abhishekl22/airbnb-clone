@@ -60,7 +60,7 @@ const CheckoutForm = ({ amount, onSuccess, onClose }) => {
 const PaymentModal = ({ isOpen, onClose, amount, onPaymentSuccess }) => {
   const [clientSecret, setClientSecret] = useState('');
 
-  // ✅ Correct useEffect usage (not useState)
+  // Correct useEffect usage (not useState)
   useEffect(() => {
     if (isOpen && amount > 0) {
       axiosInstance.post('/api/payment/create-payment-intent', { amount })
